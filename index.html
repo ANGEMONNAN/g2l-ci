@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G2L — Global Leading Group</title>
+<meta name="description" content="G2L (Global Leading Group) — direction générale externalisée (DSI, DCF, opérations, juridique), conseil et fourniture d'équipements. Abidjan, Côte d'Ivoire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="g2l-icone.svg">
+<link rel="apple-touch-icon" href="g2l-icone-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12293F; --navy-2:#0B1926; --gold:#C8932F; --ink:#0B1926; --ink-soft:#4B5768;
+    --muted:#8B96A4; --line:#E4E2DC; --bg:#F7F6F3; --bg-soft:#E9EDF1;
+    --brass:#EFDFBC; --card:#ffffff;
+    --mono:'IBM Plex Mono','Courier New',Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .container{max-width:1120px;margin:0 auto;padding:0 28px;}
+  img,svg{max-width:100%;}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(247,246,243,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .brand svg{width:30px;height:auto;}
+  .brand .word{font-weight:300;font-size:21px;letter-spacing:1px;color:var(--navy);}
+  .brand .word span{color:var(--gold);}
+  nav.links{display:flex;gap:34px;font-size:14.5px;}
+  nav.links a{text-decoration:none;color:var(--ink-soft);font-weight:500;transition:color .15s;}
+  nav.links a:hover{color:var(--navy);}
+  .nav-cta{background:var(--navy);color:#fff !important;padding:9px 20px;border-radius:999px;font-size:13.5px;font-weight:600;text-decoration:none;}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{width:22px;height:2px;background:var(--navy);display:block;}
+  .mobile-menu{display:none;flex-direction:column;gap:2px;padding:8px 28px 18px;border-top:1px solid var(--line);}
+  .mobile-menu a{padding:12px 0;font-size:15px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line);}
+  header.nav.open .mobile-menu{display:flex;}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:110px 0 100px;}
+  .hero-chevron{position:absolute;right:-120px;top:-80px;width:640px;opacity:.06;pointer-events:none;}
+  .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:400;color:var(--gold);margin:0 0 18px;}
+  .hero h1{font-size:53px;font-weight:300;line-height:1.15;margin:0 0 24px;color:var(--navy);max-width:760px;letter-spacing:-.01em;}
+  .hero h1 b{font-weight:600;}
+  .hero p.lead{font-size:18px;color:var(--ink-soft);max-width:600px;margin:0 0 36px;}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-size:14.5px;font-weight:600;text-decoration:none;transition:transform .15s, box-shadow .15s;}
+  .btn-primary{background:var(--navy);color:#fff;}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(18,41,63,.25);}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--navy);}
+  .btn-ghost:hover{border-color:var(--navy);}
+
+  .badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:56px;}
+  .badge{border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:13px;color:var(--ink-soft);background:var(--bg-soft);}
+  .badge b{color:var(--navy);}
+
+  /* SECTION */
+  section{padding:100px 0;}
+  section.alt{background:var(--bg-soft);}
+  .section-head{max-width:640px;margin:0 0 56px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:34px;font-weight:300;margin:0 0 16px;color:var(--navy);letter-spacing:-.01em;}
+  .section-head p{color:var(--ink-soft);font-size:16px;margin:0;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);font-size:16px;margin:0 0 18px;}
+  .about-card{background:var(--navy);border-radius:18px;padding:36px;color:#fff;}
+  .about-card .chev{width:54px;margin-bottom:22px;}
+  .about-card h3{font-weight:300;font-size:22px;margin:0 0 14px;}
+  .about-card p{color:#B9C4D1;font-size:14.5px;margin:0;}
+  .stat-row{display:flex;gap:28px;margin-top:26px;padding-top:26px;border-top:1px solid rgba(255,255,255,.15);}
+  .stat b{display:block;font-size:22px;font-weight:600;}
+  .stat span{font-size:12px;color:#8FA2B6;}
+
+  /* SERVICES */
+  .svc-lead{display:flex;align-items:center;gap:14px;margin:56px 0 22px;}
+  .svc-lead h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);font-weight:700;margin:0;white-space:nowrap;}
+  .svc-lead .rule{flex:1;height:1px;background:var(--line);}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .svc-card{border:1px solid var(--line);border-radius:16px;padding:30px 30px 32px;transition:box-shadow .15s, transform .15s;}
+  .svc-card:hover{box-shadow:0 14px 30px rgba(18,41,63,.08);transform:translateY(-2px);}
+  .svc-card .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--gold);background:#EFDFBC;padding:4px 10px;border-radius:999px;margin-bottom:16px;}
+  .svc-card h3{font-size:18px;font-weight:600;color:var(--navy);margin:0 0 10px;}
+  .svc-card .intro{font-size:14px;color:var(--ink-soft);margin:0 0 18px;}
+  ul.tasks{list-style:none;margin:0;padding:0;}
+  ul.tasks li{position:relative;padding:6px 0 6px 20px;font-size:13.5px;color:var(--ink-soft);border-top:1px solid #E4E2DC;}
+  ul.tasks li:first-child{border-top:none;}
+  ul.tasks li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:2px;background:var(--gold);}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;}
+  .contact-info .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:26px;}
+  .contact-info .k{width:34px;height:34px;border-radius:9px;background:var(--bg-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gold);font-weight:700;flex:none;}
+  .contact-info .v b{display:block;font-size:14.5px;color:var(--navy);}
+  .contact-info .v span{font-size:13.5px;color:var(--ink-soft);}
+  form{display:grid;gap:16px;}
+  .frow2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  label{font-size:12.5px;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:7px;}
+  input,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff;}
+  input:focus,textarea:focus{outline:none;border-color:var(--navy);}
+  textarea{min-height:110px;resize:vertical;}
+  .submit{justify-self:start;margin-top:6px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:44px 0;}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .footer-brand{display:flex;align-items:center;gap:10px;}
+  .footer-brand svg{width:22px;}
+  .footer-brand span{font-size:13px;color:var(--muted);}
+  footer .legal{font-size:12px;color:var(--muted);}
+
+  @media (max-width:860px){
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .hero h1{font-size:38px;}
+    .about-grid,.contact-grid,.svc-grid{grid-template-columns:1fr;}
+    .frow2{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .svc-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;}
+    .section-head h2{font-size:27px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <svg viewBox="0 0 300 260"><path d="M46 196 L150 58" fill="none" stroke="#12293F" stroke-width="30" stroke-linecap="round"/><path d="M150 58 L254 196" fill="none" stroke="#C8932F" stroke-width="30" stroke-linecap="round"/></svg>
+      <span class="word">G<span>2</span>L</span>
+    </a>
+    <nav class="links">
+      <a href="#apropos">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Nous contacter</a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('header.nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="#apropos" onclick="document.querySelector('header.nav').classList.remove('open')">À propos</a>
+    <a href="#services" onclick="document.querySelector('header.nav').classList.remove('open')">Services</a>
+    <a href="#contact" onclick="document.querySelector('header.nav').classList.remove('open')">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <svg class="hero-chevron" viewBox="0 0 300 260"><path d="M46 196 L150 58" fill="none" stroke="#12293F" stroke-width="30" stroke-linecap="round"/><path d="M150 58 L254 196" fill="none" stroke="#12293F" stroke-width="30" stroke-linecap="round"/></svg>
+    <div class="container">
+      <p class="eyebrow">Global Leading Group · Abidjan, Côte d'Ivoire</p>
+      <h1>La direction générale <b>externalisée</b>, au service de votre croissance.</h1>
+      <p class="lead">G2L met à la disposition des entreprises une direction générale externalisée — stratégie, finance, opérations et juridique — pour leur donner la rigueur et les fonctions clés d'un grand groupe, sans les charges d'un recrutement à temps plein.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Nous contacter</a>
+        <a href="#services" class="btn btn-ghost">Découvrir nos services</a>
+      </div>
+      <div class="badges">
+        <div class="badge"><b>SARLU</b> — société de management</div>
+        <div class="badge"><b>Abidjan</b> — Côte d'Ivoire</div>
+        <div class="badge"><b>2026</b> — fondation</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="alt">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">À propos</p>
+          <h2 style="font-size:34px;font-weight:300;color:var(--navy);margin:0 0 24px;">Une société de management à part entière</h2>
+          <p>Basée à Abidjan, G2L est une société de services qui met à la disposition des entreprises une direction générale externalisée — systèmes d'information (DSI), direction comptable et financière (DCF), opérations et juridique — ainsi qu'un accompagnement stratégique, organisationnel et technique.</p>
+          <p>Chaque mission est pilotée avec la même exigence que si G2L faisait partie de votre équipe de direction : suivi régulier, reporting clair, et une vraie continuité dans le temps.</p>
+        </div>
+        <div class="about-card">
+          <svg class="chev" viewBox="0 0 300 260"><path d="M46 196 L150 58" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round"/><path d="M150 58 L254 196" fill="none" stroke="#C8932F" stroke-width="30" stroke-linecap="round"/></svg>
+          <h3>Global Leading Group</h3>
+          <p>Direction générale externalisée, conseil et fourniture d'équipements, en Côte d'Ivoire et à l'international.</p>
+          <div class="stat-row">
+            <div class="stat"><b>4</b><span>pôles de direction</span></div>
+            <div class="stat"><b>99</b><span>ans — durée statutaire</span></div>
+            <div class="stat"><b>1M</b><span>F CFA de capital</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>Ce que G2L prend en charge</h2>
+        <p>Une direction générale externalisée organisée en quatre fonctions, complétée par le conseil et la fourniture d'équipements — directement issus de l'objet social de G2L.</p>
+      </div>
+
+      <div class="svc-lead"><h3>Direction générale externalisée</h3><div class="rule"></div></div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <span class="tag">DSI</span>
+          <h3>Direction des Systèmes d'Information</h3>
+          <p class="intro">Pilotage de la stratégie numérique et des outils qui font tourner l'entreprise au quotidien.</p>
+          <ul class="tasks">
+            <li>Définition de la stratégie IT et digitale</li>
+            <li>Sélection et déploiement des outils (ERP, CRM, messagerie, sauvegardes)</li>
+            <li>Sécurité informatique et protection des données</li>
+            <li>Pilotage des prestataires et infrastructures</li>
+            <li>Digitalisation des processus métier</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="tag">DCF</span>
+          <h3>Direction Comptable et Financière</h3>
+          <p class="intro">La rigueur financière d'un grand groupe, sans avoir à recruter une direction financière complète.</p>
+          <ul class="tasks">
+            <li>Supervision de la comptabilité générale et analytique</li>
+            <li>Élaboration des budgets et du reporting financier</li>
+            <li>Gestion de la trésorerie et des relations bancaires</li>
+            <li>Coordination avec experts-comptables et commissaires aux comptes</li>
+            <li>Tableaux de bord et indicateurs financiers (KPIs)</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="tag">OPÉRATIONS</span>
+          <h3>Direction des Opérations</h3>
+          <p class="intro">L'organisation et le suivi qui permettent à l'activité de tenir ses engagements.</p>
+          <ul class="tasks">
+            <li>Organisation et optimisation des processus internes</li>
+            <li>Pilotage de la production ou de la prestation de services</li>
+            <li>Suivi qualité et indicateurs de performance</li>
+            <li>Coordination des équipes opérationnelles</li>
+            <li>Gestion de projets et des délais</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="tag">JURIDIQUE</span>
+          <h3>Direction Juridique</h3>
+          <p class="intro">Sécuriser les contrats et les décisions, et anticiper les risques réglementaires.</p>
+          <ul class="tasks">
+            <li>Rédaction et révision des contrats (clients, fournisseurs, partenaires)</li>
+            <li>Veille réglementaire et mise en conformité</li>
+            <li>Structuration juridique des opérations</li>
+            <li>Gestion des litiges et précontentieux</li>
+            <li>Protection de la propriété intellectuelle</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc-lead"><h3>Conseil &amp; fourniture</h3><div class="rule"></div></div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <span class="tag">CONSEIL</span>
+          <h3>Conseil, stratégie &amp; formation</h3>
+          <p class="intro">Un regard extérieur et structurant sur l'organisation, au moment où elle en a besoin.</p>
+          <ul class="tasks">
+            <li>Diagnostic organisationnel et technique</li>
+            <li>Définition de la feuille de route stratégique</li>
+            <li>Accompagnement au changement</li>
+            <li>Formation des équipes dirigeantes</li>
+            <li>Structuration des processus internes</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="tag">ÉQUIPEMENTS</span>
+          <h3>Fourniture d'équipements</h3>
+          <p class="intro">L'accès à des matériels et équipements professionnels, du sourcing à la livraison.</p>
+          <ul class="tasks">
+            <li>Sourcing de matériels et équipements professionnels</li>
+            <li>Négociation avec les fournisseurs</li>
+            <li>Commercialisation et distribution</li>
+            <li>Suivi logistique et livraison</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">Contact</p>
+          <h2 style="font-size:34px;font-weight:300;color:var(--navy);margin:0 0 30px;">Parlons de votre projet</h2>
+          <div class="row">
+            <div class="k">@</div>
+            <div class="v"><b>Email</b><span>contact@g2l-ci.com</span></div>
+          </div>
+          <div class="row">
+            <div class="k">📍</div>
+            <div class="v"><b>Localisation</b><span>Abidjan, Côte d'Ivoire</span></div>
+          </div>
+          <div class="row">
+            <div class="k">in</div>
+            <div class="v"><b>LinkedIn</b><span>Global Leading Group</span></div>
+          </div>
+        </div>
+        <form>
+          <div class="frow2">
+            <div><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+            <div><label>Email</label><input type="email" placeholder="vous@exemple.com"></div>
+          </div>
+          <div><label>Sujet</label><input type="text" placeholder="Objet de votre message"></div>
+          <div><label>Message</label><textarea placeholder="Décrivez votre projet ou votre demande..."></textarea></div>
+          <a href="mailto:contact@g2l-ci.com" class="btn btn-primary submit">Envoyer le message</a>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 300 260"><path d="M46 196 L150 58" fill="none" stroke="#12293F" stroke-width="30" stroke-linecap="round"/><path d="M150 58 L254 196" fill="none" stroke="#C8932F" stroke-width="30" stroke-linecap="round"/></svg>
+      <span>© 2026 Global Leading Group (G2L)</span>
+    </div>
+    <div class="legal">SARLU au capital de 1 000 000 F CFA — Abidjan, Côte d'Ivoire</div>
+  </div>
+</footer>
+
+</body>
+</html>
